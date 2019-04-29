@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Николай Эмрих](https://up.htmlacademy.ru/react/1/user/129463).
-* Наставник: `Неизвестно`.
+* Наставник: [Николай Эмрих](https://up.htmlacademy.ru/react/1/user/129463).
 
 ---
 
