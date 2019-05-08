@@ -11,7 +11,7 @@ const App = () => {
   }, {
     name: `Nice, cozy, warm big bed apartment`
   }, {
-    name: `Wood and stone place`
+    name: `Some place`
   }];
   return (
     <Fragment>
