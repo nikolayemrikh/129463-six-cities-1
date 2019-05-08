@@ -1,12 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import App from './app.jsx';
+import PlaceCard from './place-card.jsx';
 
-describe(`App compontent`, () => {
+const mock = {
+  name: `some name`
+};
+
+describe(`PlaceCard compontent`, () => {
   it(`should render correctly`, () => {
+    const {name} = mock;
     const tree = renderer
-      .create(<App/>)
+      .create(<PlaceCard name={name}/>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
