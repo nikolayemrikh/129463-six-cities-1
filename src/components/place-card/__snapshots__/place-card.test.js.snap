@@ -4,17 +4,18 @@ exports[`PlaceCard compontent should render correctly 1`] = `
 <article
   className="cities__place-card place-card"
 >
+  
   <div
     className="cities__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
+      onClick={[Function]}
     >
       <img
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/room.jpg"
         width="260"
       />
     </a>
@@ -31,7 +32,7 @@ exports[`PlaceCard compontent should render correctly 1`] = `
         <b
           className="place-card__price-value"
         >
-          €80
+          €
         </b>
         <span
           className="place-card__price-text"
@@ -68,7 +69,7 @@ exports[`PlaceCard compontent should render correctly 1`] = `
         <span
           style={
             Object {
-              "width": "80%",
+              "width": "NaN%",
             }
           }
         />
@@ -91,9 +92,7 @@ exports[`PlaceCard compontent should render correctly 1`] = `
     </h2>
     <p
       className="place-card__type"
-    >
-      Private room
-    </p>
+    />
   </div>
 </article>
 `;

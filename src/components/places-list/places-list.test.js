@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Main from './main.jsx';
+import PlacesList from './places-list.jsx';
 
 const offers = [{
   id: 1,
@@ -20,7 +20,7 @@ const offers = [{
 describe(`Main compontent`, () => {
   it(`should render correctly`, () => {
     const tree = renderer
-      .create(<Main offers={offers}/>)
+      .create(<PlacesList offers={offers}/>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
