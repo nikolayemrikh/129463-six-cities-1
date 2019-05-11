@@ -1,10 +1,11 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 
-import PlaceCard from "../place-card/place-card.jsx";
+import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
-  const {places} = props;
+  const {offers} = props;
+
   return (
     <Fragment>
       <div style={{display: `none`}}>
@@ -99,9 +100,7 @@ const Main = (props) => {
                   </select> */}
 
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {places.map((place, i) => <PlaceCard key={`${i}-${place.name}`} {...place}/>)}
-              </div>
+              <PlacesList offers={offers}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
@@ -114,7 +113,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  places: PropTypes.array.isRequired,
+  offers: PropTypes.array.isRequired,
   handlePlaceClick: PropTypes.func
 };
 

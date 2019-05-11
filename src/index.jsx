@@ -4,4 +4,6 @@ import ReactDOM from "react-dom";
 
 import App from "./components/app.jsx";
 
-ReactDOM.render(<App/>, document.querySelector(`#root`));
+import offers from "./mocks/offers";
+
+ReactDOM.render(<App offers={offers}/>, document.querySelector(`#root`));
