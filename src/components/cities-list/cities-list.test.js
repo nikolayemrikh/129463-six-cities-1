@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {App} from './app.jsx';
+import CitiesList from './cities-list.jsx';
 
 const offers = [{
   id: 1,
@@ -125,59 +125,16 @@ const offers = [{
   city: `Dusseldorf`
 }];
 
-const cityOffers = [{
-  id: 21,
-  name: `Очень дёшево, но есть тараканы`,
-  type: `apartment`,
-  image: `img/room.jpg`,
-  rating: 4,
-  price: 730,
-  premium: false,
-  location: [52.38774212252154, 4.847432434231717],
-  city: `Dusseldorf`
-}, {
-  id: 22,
-  name: `Очень дорого, но ты бедный`,
-  type: `house`,
-  image: `img/room.jpg`,
-  rating: 4.7,
-  price: 5530,
-  premium: false,
-  location: [52.37612854836747, 4.861351603419635],
-  city: `Dusseldorf`
-}, {
-  id: 23,
-  name: `Комната в общаге с китайцами на этаже`,
-  type: `room`,
-  image: `img/room.jpg`,
-  rating: 3.2,
-  price: 530,
-  premium: false,
-  location: [52.393946496720595, 4.931404544812371],
-  city: `Dusseldorf`
-}, {
-  id: 24,
-  name: `Отель как отель. Норм.`,
-  type: `hotel`,
-  image: `img/room.jpg`,
-  rating: 5,
-  price: 830,
-  premium: true,
-  location: [52.38057542108448, 4.934734751323372],
-  city: `Dusseldorf`
-}];
-
 const mock = {
   currentCity: offers[2].city,
-  cityOffers,
   offers,
-  changeCity: () => {}
+  handleCityChange: () => {}
 };
 
-describe(`App compontent`, () => {
+describe(`PlaceCard compontent`, () => {
   it(`should render correctly`, () => {
     const tree = renderer
-      .create(<App {...mock}/>)
+      .create(<CitiesList {...mock}/>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
