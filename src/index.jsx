@@ -7,7 +7,12 @@ import {reducer} from "./reducer";
 
 import offers from "./mocks/offers";
 
-const store = createStore(reducer);
+
+let params = [reducer];
+if (window && window.__REDUX_DEVTOOLS_EXTENSION__) {
+  params.push(window.__REDUX_DEVTOOLS_EXTENSION__());
+}
+const store = createStore(...params);
 
 import App from "./components/app.jsx";
 

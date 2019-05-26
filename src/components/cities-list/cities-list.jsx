@@ -15,7 +15,6 @@ const getAvailableCities = (offers) => {
 const CitiesList = (props) => {
   const {currentCity, offers, handleCityChange} = props;
 
-  // const availableCities = [...new Set(offers.map((o) => o.city))];
   const availableCities = getAvailableCities(offers);
 
   return <section className="locations container">

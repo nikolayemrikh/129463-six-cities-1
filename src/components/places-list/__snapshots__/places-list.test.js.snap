@@ -6,6 +6,8 @@ exports[`Main compontent should render correctly 1`] = `
 >
   <article
     className="cities__place-card place-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     
     <div
@@ -100,6 +102,8 @@ exports[`Main compontent should render correctly 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     
     <div
@@ -194,6 +198,8 @@ exports[`Main compontent should render correctly 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     
     <div
@@ -288,6 +294,8 @@ exports[`Main compontent should render correctly 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     
     <div

@@ -15,7 +15,9 @@ const PlaceCard = (props) => {
     price,
     premium,
     handleImageClick = () => {},
-    handleTitleClick = () => {}
+    handleTitleClick = () => {},
+    handleMouseEnter = () => {},
+    handleMouseLeave = () => {}
   } = props;
 
   const _handleImageClick = (evt) => {
@@ -29,7 +31,7 @@ const PlaceCard = (props) => {
   };
 
   return (
-    <article className="cities__place-card place-card">
+    <article onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="cities__place-card place-card">
       {premium ? <div className="place-card__mark">
         <span>Premium</span>
       </div> : ``}
@@ -75,7 +77,9 @@ PlaceCard.propTypes = {
   price: PropTypes.number,
   premium: PropTypes.bool,
   handleImageClick: PropTypes.func,
-  handleTitleClick: PropTypes.func
+  handleTitleClick: PropTypes.func,
+  handleMouseEnter: PropTypes.func,
+  handleMouseLeave: PropTypes.func
 };
 
 export default PlaceCard;
