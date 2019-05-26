@@ -3,6 +3,8 @@
 exports[`PlaceCard compontent should render correctly 1`] = `
 <article
   className="cities__place-card place-card"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   
   <div

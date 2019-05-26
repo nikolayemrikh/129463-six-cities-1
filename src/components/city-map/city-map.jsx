@@ -1,13 +1,14 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import Leaflet from "leaflet";
 
-export default class CityMap extends PureComponent {
+export default class CityMap extends React.PureComponent {
   constructor(props) {
     super(props);
     this._mapRef = React.createRef();
   }
+
   render() {
     return <section ref={this._mapRef} className="cities__map map"></section>;
   }
@@ -18,11 +19,6 @@ export default class CityMap extends PureComponent {
     }
 
     const city = [52.38333, 4.9];
-
-    // const icon = Leaflet.icon({
-    //   iconUrl: `img/another-pin.svg`,
-    //   iconSize: [30, 30]
-    // });
 
     const zoom = 12;
     this._map = Leaflet.map(this._mapRef.current, {
@@ -40,31 +36,38 @@ export default class CityMap extends PureComponent {
       })
       .addTo(this._map);
 
+    this._icon = Leaflet.icon({
+      iconUrl: `img/another-pin.svg`,
+      iconSize: [30, 30]
+    });
+
+    this._activeIcon = Leaflet.icon({
+      iconUrl: `img/another-pin.svg`,
+      iconSize: [30, 40]
+    });
     this._addMarkersOnMap();
-    // this.props.offers.forEach(({location}) => {
-    //   Leaflet
-    //     .marker(location, {icon})
-    //     .addTo(this._map);
-    // });
   }
 
 
   _addMarkersOnMap() {
     if (!this._markers) {
-      this._markers = [];
+      this._markers = new Map();
     } else {
-      this._markers.forEach((marker) => {
-        marker.remove();
+      this._markers.forEach((offerId, marker) => {
+        if (this.props.activeOfferId === offerId) {
+          marker.setIcon(this._activeIcon);
+        } else {
+          marker.setIcon(this._icon);
+        }
       });
+      return;
     }
-    const icon = Leaflet.icon({
-      iconUrl: `img/another-pin.svg`,
-      iconSize: [30, 30]
-    });
 
-    this.props.offers.forEach(({location}) => {
-      const marker = Leaflet.marker(location, {icon});
-      this._markers.push(marker);
+    this.props.offers.forEach(({id, location}) => {
+      const marker = Leaflet.marker(location, {
+        icon: id === this.props.activeOfferId ? this._activeIcon : this._icon
+      });
+      this._markers.set(marker, id);
       marker.addTo(this._map);
     });
   }
@@ -76,4 +79,5 @@ export default class CityMap extends PureComponent {
 
 CityMap.propTypes = {
   offers: PropTypes.array.isRequired,
+  activeOfferId: PropTypes.any
 };

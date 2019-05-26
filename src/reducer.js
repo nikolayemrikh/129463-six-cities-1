@@ -10,7 +10,7 @@ const initialState = {
 
 const Actions = {
   CHANGE_CITY: `change_city`,
-  GET_CITY_OFFERS: `get_city_offers`
+  CHANGE_CITY_OFFERS: `get_city_offers`
 };
 
 // ф-ии создания actions. action имеет type и payload
@@ -21,10 +21,10 @@ const ActionCreators = {
       payload: city
     };
   },
-  [Actions.GET_CITY_OFFERS]: (city) => {
+  [Actions.CHANGE_CITY_OFFERS]: (city) => {
     return {
-      type: Actions.GET_CITY_OFFERS,
-      payload: city
+      type: Actions.CHANGE_CITY_OFFERS,
+      payload: getCityOffers(city, offers)
     };
   }
 };
@@ -36,8 +36,8 @@ const reducer = (state = initialState, action) => {
     case Actions.CHANGE_CITY:
       newState.currentCity = payload;
       break;
-    case Actions.GET_CITY_OFFERS:
-      newState.cityOffers = getCityOffers(payload, offers);
+    case Actions.CHANGE_CITY_OFFERS:
+      newState.cityOffers = payload;
       break;
   }
 
