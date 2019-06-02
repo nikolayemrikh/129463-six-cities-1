@@ -1,6 +1,6 @@
 export default [{
   id: 1,
-  name: `Очень дёшево, но есть тараканы`,
+  description: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -10,7 +10,7 @@ export default [{
   city: `Paris`
 }, {
   id: 2,
-  name: `Очень дорого, но ты бедный`,
+  description: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -20,7 +20,7 @@ export default [{
   city: `Paris`
 }, {
   id: 3,
-  name: `Комната в общаге с китайцами на этаже`,
+  description: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -30,7 +30,7 @@ export default [{
   city: `Paris`
 }, {
   id: 4,
-  name: `Отель как отель. Норм.`,
+  description: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,
@@ -40,7 +40,7 @@ export default [{
   city: `Paris`
 }, {
   id: 5,
-  name: `Комната в общаге с китайцами на этаже`,
+  description: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -50,7 +50,7 @@ export default [{
   city: `Cologne`
 }, {
   id: 6,
-  name: `Очень дёшево, но есть тараканы`,
+  description: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -60,7 +60,7 @@ export default [{
   city: `Cologne`
 }, {
   id: 7,
-  name: `Отель как отель. Норм.`,
+  description: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,
@@ -70,7 +70,7 @@ export default [{
   city: `Cologne`
 }, {
   id: 8,
-  name: `Очень дорого, но ты бедный`,
+  description: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -80,7 +80,7 @@ export default [{
   city: `Cologne`
 }, {
   id: 9,
-  name: `Очень дёшево, но есть тараканы`,
+  description: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -90,7 +90,7 @@ export default [{
   city: `Brussels`
 }, {
   id: 10,
-  name: `Очень дорого, но ты бедный`,
+  description: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -100,7 +100,7 @@ export default [{
   city: `Brussels`
 }, {
   id: 11,
-  name: `Комната в общаге с китайцами на этаже`,
+  description: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -110,7 +110,7 @@ export default [{
   city: `Brussels`
 }, {
   id: 12,
-  name: `Отель как отель. Норм.`,
+  description: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,
@@ -119,8 +119,8 @@ export default [{
   location: [52.38300642217259, 4.948143836003504],
   city: `Brussels`
 }, {
-  id: 12,
-  name: `Комната в общаге с китайцами на этаже`,
+  id: 13,
+  description: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -130,7 +130,7 @@ export default [{
   city: `Amsterdam`
 }, {
   id: 14,
-  name: `Очень дёшево, но есть тараканы`,
+  description: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -140,7 +140,7 @@ export default [{
   city: `Amsterdam`
 }, {
   id: 15,
-  name: `Очень дорого, но ты бедный`,
+  description: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -150,7 +150,7 @@ export default [{
   city: `Amsterdam`
 }, {
   id: 16,
-  name: `Отель как отель. Норм.`,
+  description: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,
@@ -160,7 +160,7 @@ export default [{
   city: `Amsterdam`
 }, {
   id: 17,
-  name: `Очень дёшево, но есть тараканы`,
+  description: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -170,7 +170,7 @@ export default [{
   city: `Hamburg`
 }, {
   id: 18,
-  name: `Очень дорого, но ты бедный`,
+  description: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -180,7 +180,7 @@ export default [{
   city: `Hamburg`
 }, {
   id: 19,
-  name: `Комната в общаге с китайцами на этаже`,
+  description: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -190,7 +190,7 @@ export default [{
   city: `Hamburg`
 }, {
   id: 20,
-  name: `Отель как отель. Норм.`,
+  description: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,
@@ -200,7 +200,7 @@ export default [{
   city: `Hamburg`
 }, {
   id: 21,
-  name: `Очень дёшево, но есть тараканы`,
+  description: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -210,7 +210,7 @@ export default [{
   city: `Dusseldorf`
 }, {
   id: 22,
-  name: `Очень дорого, но ты бедный`,
+  description: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -220,7 +220,7 @@ export default [{
   city: `Dusseldorf`
 }, {
   id: 23,
-  name: `Комната в общаге с китайцами на этаже`,
+  description: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -230,7 +230,7 @@ export default [{
   city: `Dusseldorf`
 }, {
   id: 24,
-  name: `Отель как отель. Норм.`,
+  description: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,

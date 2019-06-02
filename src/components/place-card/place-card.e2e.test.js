@@ -17,7 +17,7 @@ describe(`E2E: PlaceCard`, () => {
   beforeEach(() => {
     imageClickHandler = jest.fn();
     titleClickHandler = jest.fn();
-    placeCard = shallow(<PlaceCard name={`some-name`} handleImageClick={imageClickHandler} handleTitleClick={titleClickHandler}/>);
+    placeCard = shallow(<PlaceCard title={`some-name`} handleImageClick={imageClickHandler} handleTitleClick={titleClickHandler}/>);
     titleLink = placeCard.find(`.place-card__name a`);
     imageLink = placeCard.find(`.place-card__image-wrapper a`);
   });

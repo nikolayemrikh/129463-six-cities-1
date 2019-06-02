@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import CityMap from './city-map.jsx';
 
-const offers = [{
+const cityOffers = [{
   location: [52.3909553943508, 4.85309666406198]
 }, {
   location: [52.369553943508, 4.85309666406198]
@@ -16,7 +16,7 @@ const offers = [{
 describe(`CityMap compontent`, () => {
   it(`should render correctly`, () => {
     const tree = renderer
-      .create(<CityMap offers={offers}/>)
+      .create(<CityMap cityOffers={cityOffers}/>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();

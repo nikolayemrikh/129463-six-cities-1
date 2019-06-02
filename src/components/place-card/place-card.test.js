@@ -4,14 +4,14 @@ import renderer from 'react-test-renderer';
 import PlaceCard from './place-card.jsx';
 
 const mock = {
-  name: `some name`
+  title: `some name`
 };
 
 describe(`PlaceCard compontent`, () => {
   it(`should render correctly`, () => {
-    const {name} = mock;
+    const {title} = mock;
     const tree = renderer
-      .create(<PlaceCard name={name}/>)
+      .create(<PlaceCard title={title}/>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
