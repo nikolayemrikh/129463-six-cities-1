@@ -1,13 +1,15 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {Actions, ActionCreators} from "../reducer";
+import {getCurrentCity, getCityOffers} from "../reducers/offers/selectors";
+import {Action as OffersAction, ActionCreator as OffersActionCreator} from "../reducers/offers/offers";
 
 import withTransformProps from "../hocs/with-transform-props/with-transform-props";
 import withActiveItem from "../hocs/with-active-item/with-active-item";
 import CitiesList from "./cities-list/cities-list.jsx";
 import PlacesList from "./places-list/places-list.jsx";
 import CityMap from "./city-map/city-map.jsx";
+import {getOffers} from "../reducers/offers/selectors";
 
 const CitiesListA = withActiveItem(
     withTransformProps((props) => Object.assign({}, props, {
@@ -98,7 +100,7 @@ class App extends React.PureComponent {
                 <PlacesListA handleSetActiveItem={this._handleActivePlaceCard.bind(this)} offers={cityOffers}/>
               </section>
               <div className="cities__right-section">
-                {currentCity === `` ? `` : <CityMap key={currentCity} activeOfferId={this.state.activeOfferId} cityOffers={cityOffers}/>}
+                <CityMap key={currentCity} activeOfferId={this.state.activeOfferId} cityOffers={cityOffers}/>
               </div>
             </div>
           </div>
@@ -123,13 +125,17 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return Object.assign({}, ownProps, state);
+  return Object.assign({}, ownProps, {
+    currentCity: getCurrentCity(state),
+    cityOffers: getCityOffers(state),
+    offers: getOffers(state)
+  });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeCity: (newCity) => {
-      dispatch(ActionCreators[Actions.CHANGE_CITY](newCity));
+      dispatch(OffersActionCreator[OffersAction.CHANGE_CITY](newCity));
     }
   };
 };

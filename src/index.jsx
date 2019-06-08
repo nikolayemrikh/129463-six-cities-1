@@ -3,14 +3,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware} from "redux";
-import {reducer, Operation, Actions, ActionCreators} from "./reducer";
+import {getOffers} from "./reducers/offers/selectors";
+import reducer from "./reducers/index";
+import {Operation} from "./reducers/offers/offers";
+import {Action as OffersAction, ActionCreator as OffersActionCreator} from "./reducers/offers/offers";
 import thunk from "redux-thunk";
 import {compose} from "recompose";
 import {getAxios} from "./api";
 import App from "./components/app.jsx";
-
-// import offers from "./mocks/offers";
-
 
 const api = getAxios((...args) => store.dispatch(...args));
 
@@ -31,10 +31,10 @@ const getRandomItem = (items) => {
 store.dispatch(Operation.loadOffers())
   .then(() => {
     const currentState = store.getState();
-    const offer = getRandomItem(currentState.offers);
+    const offer = getRandomItem(getOffers(currentState));
 
     if (offer) {
-      store.dispatch(ActionCreators[Actions.CHANGE_CITY](offer.city));
+      store.dispatch(OffersActionCreator[OffersAction.CHANGE_CITY](offer.city));
     }
   });
 
