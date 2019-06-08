@@ -30,6 +30,7 @@ const getRandomItem = (items) => {
 
 store.dispatch(Operation.loadOffers())
   .then(() => {
+    // TODO добавить селектор для получения рандомного города в reducers/offers/selectors
     const currentState = store.getState();
     const offer = getRandomItem(getOffers(currentState));
 

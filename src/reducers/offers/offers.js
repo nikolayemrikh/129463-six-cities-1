@@ -41,8 +41,7 @@ const prepareOffers = (offers) => offers.map((offer) => {
 
 const initialState = {
   offers: [],
-  currentCity: ``,
-  cityOffers: []
+  currentCity: ``
 };
 
 const Action = {

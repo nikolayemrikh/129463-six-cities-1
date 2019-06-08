@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {getCurrentCity, getCityOffers} from "../reducers/offers/selectors";
+import {getOffers, getCurrentCity, getCityOffers} from "../reducers/offers/selectors";
 import {Action as OffersAction, ActionCreator as OffersActionCreator} from "../reducers/offers/offers";
 
 import withTransformProps from "../hocs/with-transform-props/with-transform-props";
@@ -9,7 +9,6 @@ import withActiveItem from "../hocs/with-active-item/with-active-item";
 import CitiesList from "./cities-list/cities-list.jsx";
 import PlacesList from "./places-list/places-list.jsx";
 import CityMap from "./city-map/city-map.jsx";
-import {getOffers} from "../reducers/offers/selectors";
 
 const CitiesListA = withActiveItem(
     withTransformProps((props) => Object.assign({}, props, {

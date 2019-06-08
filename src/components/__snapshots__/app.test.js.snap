@@ -209,9 +209,7 @@ Array [
           <b
             className="places__found"
           >
-            4
-             places to stay in 
-            Paris
+            4 places to stay in Paris
           </b>
           <form
             action="#"
