@@ -39,8 +39,6 @@ const prepareOffers = (offers) => offers.map((offer) => {
   };
 });
 
-const getCityOffers = (city, offers1) => offers1.filter((o) => o.city === city);
-
 const initialState = {
   offers: [],
   currentCity: ``,
@@ -88,11 +86,10 @@ const reducer = (state = initialState, action) => {
   const newState = {};
   switch (type) {
     case Action.LOAD_OFFERS:
-      newState.offers = [];// prepareOffers(payload);
+      newState.offers = prepareOffers(payload);
       break;
     case Action.CHANGE_CITY:
       newState.currentCity = payload;
-      newState.cityOffers = getCityOffers(payload, state.offers);
       break;
   }
 

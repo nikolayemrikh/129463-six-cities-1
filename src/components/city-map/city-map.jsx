@@ -17,13 +17,13 @@ export default class CityMap extends React.PureComponent {
     if (process && process.env && process.env.NODE_ENV === `test`) { // eslint-disable-line
       return;
     }
-
-    if (this.props.cityOffers.length) {
-      this._init();
-    }
+    this._init();
   }
 
   _init() {
+    if (!this.props.cityOffers.length) {
+      return;
+    }
     const {cityLocation} = this.props.cityOffers[0];
 
     const city = [cityLocation.latitude, cityLocation.longitude];
