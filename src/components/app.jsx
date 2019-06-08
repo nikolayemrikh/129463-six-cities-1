@@ -1,7 +1,8 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {Actions, ActionCreators} from "../reducer";
+import {getOffers, getCurrentCity, getCityOffers} from "../reducers/offers/selectors";
+import {Action as OffersAction, ActionCreator as OffersActionCreator} from "../reducers/offers/offers";
 
 import withTransformProps from "../hocs/with-transform-props/with-transform-props";
 import withActiveItem from "../hocs/with-active-item/with-active-item";
@@ -71,7 +72,7 @@ class App extends React.PureComponent {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{cityOffers.length} places to stay in {currentCity}</b>
+                <b className="places__found">{cityOffers.length ? `${cityOffers.length} places to stay in ${currentCity}` : `No places to stay available`}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -98,7 +99,7 @@ class App extends React.PureComponent {
                 <PlacesListA handleSetActiveItem={this._handleActivePlaceCard.bind(this)} offers={cityOffers}/>
               </section>
               <div className="cities__right-section">
-                <CityMap key={currentCity} activeOfferId={this.state.activeOfferId} offers={cityOffers}/>
+                <CityMap key={currentCity} activeOfferId={this.state.activeOfferId} cityOffers={cityOffers}/>
               </div>
             </div>
           </div>
@@ -123,14 +124,17 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return Object.assign({}, ownProps, state);
+  return Object.assign({}, ownProps, {
+    currentCity: getCurrentCity(state),
+    cityOffers: getCityOffers(state),
+    offers: getOffers(state)
+  });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeCity: (newCity) => {
-      dispatch(ActionCreators[Actions.CHANGE_CITY](newCity));
-      dispatch(ActionCreators[Actions.CHANGE_CITY_OFFERS](newCity));
+      dispatch(OffersActionCreator[OffersAction.CHANGE_CITY](newCity));
     }
   };
 };

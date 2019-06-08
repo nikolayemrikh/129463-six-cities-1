@@ -5,7 +5,7 @@ import {App} from './app.jsx';
 
 const offers = [{
   id: 1,
-  name: `Очень дёшево, но есть тараканы`,
+  title: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -15,7 +15,7 @@ const offers = [{
   city: `Paris`
 }, {
   id: 2,
-  name: `Очень дорого, но ты бедный`,
+  title: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -25,7 +25,7 @@ const offers = [{
   city: `Paris`
 }, {
   id: 3,
-  name: `Комната в общаге с китайцами на этаже`,
+  title: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -35,7 +35,7 @@ const offers = [{
   city: `Paris`
 }, {
   id: 5,
-  name: `Комната в общаге с китайцами на этаже`,
+  title: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -45,7 +45,7 @@ const offers = [{
   city: `Cologne`
 }, {
   id: 9,
-  name: `Очень дёшево, но есть тараканы`,
+  title: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -55,7 +55,7 @@ const offers = [{
   city: `Brussels`
 }, {
   id: 11,
-  name: `Комната в общаге с китайцами на этаже`,
+  title: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -65,7 +65,7 @@ const offers = [{
   city: `Brussels`
 }, {
   id: 12,
-  name: `Комната в общаге с китайцами на этаже`,
+  title: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -75,7 +75,7 @@ const offers = [{
   city: `Amsterdam`
 }, {
   id: 14,
-  name: `Очень дёшево, но есть тараканы`,
+  title: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -85,7 +85,7 @@ const offers = [{
   city: `Amsterdam`
 }, {
   id: 15,
-  name: `Очень дорого, но ты бедный`,
+  title: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -95,7 +95,7 @@ const offers = [{
   city: `Amsterdam`
 }, {
   id: 19,
-  name: `Комната в общаге с китайцами на этаже`,
+  title: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -105,7 +105,7 @@ const offers = [{
   city: `Hamburg`
 }, {
   id: 20,
-  name: `Отель как отель. Норм.`,
+  title: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,
@@ -115,7 +115,7 @@ const offers = [{
   city: `Hamburg`
 }, {
   id: 24,
-  name: `Отель как отель. Норм.`,
+  title: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,
@@ -127,7 +127,7 @@ const offers = [{
 
 const cityOffers = [{
   id: 21,
-  name: `Очень дёшево, но есть тараканы`,
+  title: `Очень дёшево, но есть тараканы`,
   type: `apartment`,
   image: `img/room.jpg`,
   rating: 4,
@@ -137,7 +137,7 @@ const cityOffers = [{
   city: `Dusseldorf`
 }, {
   id: 22,
-  name: `Очень дорого, но ты бедный`,
+  title: `Очень дорого, но ты бедный`,
   type: `house`,
   image: `img/room.jpg`,
   rating: 4.7,
@@ -147,7 +147,7 @@ const cityOffers = [{
   city: `Dusseldorf`
 }, {
   id: 23,
-  name: `Комната в общаге с китайцами на этаже`,
+  title: `Комната в общаге с китайцами на этаже`,
   type: `room`,
   image: `img/room.jpg`,
   rating: 3.2,
@@ -157,7 +157,7 @@ const cityOffers = [{
   city: `Dusseldorf`
 }, {
   id: 24,
-  name: `Отель как отель. Норм.`,
+  title: `Отель как отель. Норм.`,
   type: `hotel`,
   image: `img/room.jpg`,
   rating: 5,

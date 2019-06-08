@@ -17,10 +17,18 @@ export default class CityMap extends React.PureComponent {
     if (process && process.env && process.env.NODE_ENV === `test`) { // eslint-disable-line
       return;
     }
+    this._init();
+  }
 
-    const city = [52.38333, 4.9];
+  _init() {
+    if (!this.props.cityOffers.length) {
+      return;
+    }
+    const {cityLocation} = this.props.cityOffers[0];
 
-    const zoom = 12;
+    const city = [cityLocation.latitude, cityLocation.longitude];
+    const zoom = cityLocation.zoom;
+
     this._map = Leaflet.map(this._mapRef.current, {
       center: city,
       zoom,
@@ -46,8 +54,9 @@ export default class CityMap extends React.PureComponent {
       iconSize: [30, 40]
     });
     this._addMarkersOnMap();
-  }
 
+    this._initialized = true;
+  }
 
   _addMarkersOnMap() {
     if (!this._markers) {
@@ -63,8 +72,9 @@ export default class CityMap extends React.PureComponent {
       return;
     }
 
-    this.props.offers.forEach(({id, location}) => {
-      const marker = Leaflet.marker(location, {
+    this.props.cityOffers.forEach(({id, location}) => {
+      const loc = [location.latitude, location.longitude];
+      const marker = Leaflet.marker(loc, {
         icon: id === this.props.activeOfferId ? this._activeIcon : this._icon
       });
       this._markers.set(marker, id);
@@ -73,11 +83,14 @@ export default class CityMap extends React.PureComponent {
   }
 
   componentDidUpdate() {
+    if (!this._initialized) {
+      this._init();
+    }
     this._addMarkersOnMap();
   }
 }
 
 CityMap.propTypes = {
-  offers: PropTypes.array.isRequired,
+  cityOffers: PropTypes.array.isRequired,
   activeOfferId: PropTypes.any
 };

@@ -5,16 +5,16 @@ import PlacesList from './places-list.jsx';
 
 const offers = [{
   id: 1,
-  name: `Beautiful & luxurious apartment at great location`,
+  title: `Beautiful & luxurious apartment at great location`,
 }, {
   id: 2,
-  name: `Wood and stone place`
+  title: `Wood and stone place`
 }, {
   id: 3,
-  name: `Canal View Prinsengracht`
+  title: `Canal View Prinsengracht`
 }, {
   id: 4,
-  name: `Nice, cozy, warm big bed apartment`
+  title: `Nice, cozy, warm big bed apartment`
 }];
 
 describe(`Main compontent`, () => {

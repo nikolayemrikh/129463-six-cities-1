@@ -8,7 +8,7 @@ const MAX_RATING = 5;
 const PlaceCard = (props) => {
   const {
     id,
-    name,
+    title,
     type,
     image,
     rating,
@@ -60,7 +60,7 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#" onClick={_handleTitleClick}>{name}</a>
+          <a href="#" onClick={_handleTitleClick}>{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -70,7 +70,7 @@ const PlaceCard = (props) => {
 
 PlaceCard.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(Object.values(PlaceType)),
   image: PropTypes.string,
   rating: PropTypes.number,
