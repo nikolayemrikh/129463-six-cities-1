@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserLink compontent should render correctly with email and avatar if user prop presented 1`] = `
+<a
+  className="header__nav-link header__nav-link--profile"
+  href="#"
+>
+  <div
+    className="header__avatar-wrapper user__avatar-wrapper"
+  >
+    <img
+      src="src"
+    />
+  </div>
+  <span
+    className="header__user-name user__name"
+  >
+    mock@mock.com
+  </span>
+</a>
+`;
+
+exports[`UserLink compontent should render correctly with sign in button if user prop not presented 1`] = `
+<a
+  className="header__nav-link header__nav-link--profile"
+  href="#"
+>
+  <span
+    className="header__login"
+  >
+    Sign in
+  </span>
+</a>
+`;

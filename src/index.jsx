@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware} from "redux";
 import {getOffers} from "./reducers/offers/selectors";
+import {getIsAuthRequired} from "./reducers/user/selectors";
 import reducer from "./reducers/index";
 import {Operation} from "./reducers/offers/offers";
 import {Action as OffersAction, ActionCreator as OffersActionCreator} from "./reducers/offers/offers";
@@ -11,6 +12,7 @@ import thunk from "redux-thunk";
 import {compose} from "recompose";
 import {getAxios} from "./api";
 import App from "./components/app.jsx";
+import SignIn from "./components/sign-in/sign-in.jsx";
 
 const api = getAxios((...args) => store.dispatch(...args));
 
@@ -41,7 +43,7 @@ store.dispatch(Operation.loadOffers())
 
 ReactDOM.render(
     <Provider store={store}>
-      <App/>
+      {getIsAuthRequired(store.getState()) ? <SignIn/> : <App/>}
     </Provider>,
     document.querySelector(`#root`)
 );

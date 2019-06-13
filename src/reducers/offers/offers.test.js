@@ -42,7 +42,8 @@ describe(`load offers operation`, () => {
 
 
     return Operation.loadOffers()(dispatch, jest.fn(), api).then(() => {
-      expect(dispatch).toHaveBeenNthCalledWith(1, {
+      expect(dispatch).toBeCalledTimes(1);
+      expect(dispatch).toBeCalledWith({
         type: Action.LOAD_OFFERS,
         payload: [{fake: true}]
       });
