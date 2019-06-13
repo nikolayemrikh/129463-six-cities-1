@@ -2,6 +2,7 @@ import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getOffers, getCurrentCity, getCityOffers} from "../reducers/offers/selectors";
+import {getUser} from "../reducers/user/selectors";
 import {Action as OffersAction, ActionCreator as OffersActionCreator} from "../reducers/offers/offers";
 
 import withTransformProps from "../hocs/with-transform-props/with-transform-props";
@@ -9,6 +10,7 @@ import withActiveItem from "../hocs/with-active-item/with-active-item";
 import CitiesList from "./cities-list/cities-list.jsx";
 import PlacesList from "./places-list/places-list.jsx";
 import CityMap from "./city-map/city-map.jsx";
+import UserLink from "./user-link/user-link.jsx";
 
 const CitiesListA = withActiveItem(
     withTransformProps((props) => Object.assign({}, props, {
@@ -32,7 +34,7 @@ class App extends React.PureComponent {
     };
   }
   render() {
-    const {currentCity, offers, cityOffers, changeCity} = this.props;
+    const {currentCity, offers, cityOffers, changeCity, user} = this.props;
 
     return (
       <Fragment>
@@ -51,11 +53,12 @@ class App extends React.PureComponent {
               <nav className="header__nav">
                 <ul className="header__nav-list">
                   <li className="header__nav-item user">
-                    <a className="header__nav-link header__nav-link--profile" href="#">
+                    <UserLink user={user}/>
+                    {/* <a className="header__nav-link header__nav-link--profile" href="#">
                       <div className="header__avatar-wrapper user__avatar-wrapper">
                       </div>
                       <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    </a>
+                    </a> */}
                   </li>
                 </ul>
               </nav>
@@ -120,14 +123,22 @@ App.propTypes = {
   cityOffers: PropTypes.array.isRequired,
   offers: PropTypes.array.isRequired,
   handlePlaceClick: PropTypes.func,
-  changeCity: PropTypes.func.isRequired
+  changeCity: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    email: PropTypes.string,
+    name: PropTypes.string,
+    avatarSrc: PropTypes.string,
+    isPremium: PropTypes.bool
+  })
 };
 
 const mapStateToProps = (state, ownProps) => {
   return Object.assign({}, ownProps, {
     currentCity: getCurrentCity(state),
     cityOffers: getCityOffers(state),
-    offers: getOffers(state)
+    offers: getOffers(state),
+    user: getUser(state)
   });
 };
 

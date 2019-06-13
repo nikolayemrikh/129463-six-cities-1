@@ -1,9 +1,21 @@
+const prepareUser = (user) => {
+  return {
+    id: user.id,
+    email: user.email,
+    name: user.name,
+    avatarSrc: user.avatar_url,
+    isPremium: user.is_pro
+  };
+};
+
 const initialState = {
-  authRequired: false
+  authRequired: false,
+  user: null
 };
 
 const Action = {
-  REQUIRE_AUTH: `require_auth`
+  REQUIRE_AUTH: `require_auth`,
+  LOG_IN: `log_in`
 };
 
 // ф-ии создания action. action имеет type и payload
@@ -14,6 +26,23 @@ const ActionCreator = {
     return {
       type: Action.REQUIRE_AUTH,
       payload: status
+    };
+  },
+  [Action.LOG_IN]: (data) => {
+    return {
+      type: Action.LOG_IN,
+      payload: data
+    };
+  }
+};
+
+const Operation = {
+  logIn: (credentials) => {
+    return (dispatch, _getState, api) => {
+      return api.post(`/login`, credentials)
+        .then((res) => {
+          dispatch(ActionCreator[Action.LOG_IN](res.data));
+        });
     };
   }
 };
@@ -26,9 +55,13 @@ const reducer = (state = initialState, action) => {
   switch (type) {
     case Action.REQUIRE_AUTH:
       newState.authRequired = payload;
+      break;
+    case Action.LOG_IN:
+      newState.user = prepareUser(payload);
+      break;
   }
 
   return Object.assign({}, state, newState);
 };
 
-export {Action, ActionCreator, reducer};
+export {Action, ActionCreator, Operation, reducer};
