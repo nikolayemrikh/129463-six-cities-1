@@ -2,7 +2,7 @@ import {Action, reducer} from "./user";
 
 describe(`called without known action`, () => {
   it(`should return initial state by default`, () => {
-    expect(reducer(void 0, {})).toHaveProperty(`authRequired`, false);
+    expect(reducer(void 0, {})).toHaveProperty(`authRequired`, true);
   });
 });
 

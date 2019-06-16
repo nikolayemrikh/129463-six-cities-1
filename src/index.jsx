@@ -3,16 +3,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware} from "redux";
+import {BrowserRouter} from "react-router-dom";
 import {getOffers} from "./reducers/offers/selectors";
-import {getIsAuthRequired} from "./reducers/user/selectors";
 import reducer from "./reducers/index";
-import {Operation} from "./reducers/offers/offers";
-import {Action as OffersAction, ActionCreator as OffersActionCreator} from "./reducers/offers/offers";
+import {Operation as OffersOperation, Action as OffersAction, ActionCreator as OffersActionCreator} from "./reducers/offers/offers";
+import {Operation as UserOperation} from "./reducers/user/user";
 import thunk from "redux-thunk";
 import {compose} from "recompose";
 import {getAxios} from "./api";
 import App from "./components/app.jsx";
-import SignIn from "./components/sign-in/sign-in.jsx";
 
 const api = getAxios((...args) => store.dispatch(...args));
 
@@ -30,7 +29,7 @@ const getRandomItem = (items) => {
   return items[Math.floor(Math.random() * (max - min)) + min];
 };
 
-store.dispatch(Operation.loadOffers())
+store.dispatch(OffersOperation.loadOffers())
   .then(() => {
     // TODO добавить селектор для получения рандомного города в reducers/offers/selectors
     const currentState = store.getState();
@@ -41,9 +40,13 @@ store.dispatch(Operation.loadOffers())
     }
   });
 
+store.dispatch(UserOperation.checkAuth());
+
 ReactDOM.render(
     <Provider store={store}>
-      {getIsAuthRequired(store.getState()) ? <SignIn/> : <App/>}
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
     </Provider>,
     document.querySelector(`#root`)
 );
