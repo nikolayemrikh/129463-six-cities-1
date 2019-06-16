@@ -3,15 +3,30 @@ import PropTypes from "prop-types";
 
 import PlaceCard from "../place-card/place-card.jsx";
 
-const PlacesList = ({offers, handleMouseOverPlace = () => {}}) => {
-  return <div className="cities__places-list places__list tabs__content">
-    {offers.map((offer) => <PlaceCard handleMouseEnter={() => handleMouseOverPlace(offer.id)} handleMouseLeave={() => handleMouseOverPlace(null)} key={offer.id.toString()} {...offer}/>)}
+const PlacesList = (props) => {
+  const {
+    className,
+    offers,
+    inFavorites,
+    handleMouseOverPlace = () => {}
+  } = props;
+
+  return <div className={className}>
+    {offers.map((offer) => <PlaceCard
+      inFavorites={inFavorites}
+      handleMouseEnter={() => handleMouseOverPlace(offer.id)}
+      handleMouseLeave={() => handleMouseOverPlace(null)}
+      key={offer.id.toString()}
+      {...offer}
+    />)}
   </div>;
 };
 
 PlacesList.propTypes = {
   offers: PropTypes.array.isRequired,
-  handleMouseOverPlace: PropTypes.func
+  inFavorites: PropTypes.bool,
+  handleMouseOverPlace: PropTypes.func,
+  className: PropTypes.string.isRequired
 };
 
 export default PlacesList;

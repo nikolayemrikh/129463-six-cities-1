@@ -5,6 +5,11 @@ import {PlaceType} from "../../enums";
 
 const MAX_RATING = 5;
 
+const BlockName = {
+  CITIES: `cities`,
+  FAVORITES: `favorites`
+};
+
 const PlaceCard = (props) => {
   const {
     id,
@@ -14,6 +19,8 @@ const PlaceCard = (props) => {
     rating,
     price,
     premium,
+    isFavorite,
+    inFavorites,
     handleImageClick = () => {},
     handleTitleClick = () => {},
     handleMouseEnter = () => {},
@@ -30,25 +37,27 @@ const PlaceCard = (props) => {
     handleTitleClick(id);
   };
 
+  const blockName = inFavorites ? BlockName.FAVORITES : BlockName.CITIES;
+
   return (
-    <article onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="cities__place-card place-card">
-      {premium ? <div className="place-card__mark">
+    <article onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`${inFavorites ? `${blockName}__card` : `${blockName}__place-card`} place-card`}>
+      {premium && !inFavorites ? <div className="place-card__mark">
         <span>Premium</span>
       </div> : ``}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${blockName}__image-wrapper place-card__image-wrapper`}>
         <a href="#" onClick={_handleImageClick}>
-          <img className="place-card__image" src={image} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={image} width={inFavorites ? `150` : `260`} height={inFavorites ? `110` : `200`} alt="Place image"/>
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${blockName}__card-info place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
+          <button className={`place-card__bookmark-button ${isFavorite ? `place-card__bookmark-button--active` : ``} button`} type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark-active"></use>
+              <use xlinkHref="#icon-bookmark"></use>
             </svg>
             <span className="visually-hidden">In bookmarks</span>
           </button>
@@ -76,10 +85,12 @@ PlaceCard.propTypes = {
   rating: PropTypes.number,
   price: PropTypes.number,
   premium: PropTypes.bool,
+  isFavorite: PropTypes.bool,
   handleImageClick: PropTypes.func,
   handleTitleClick: PropTypes.func,
   handleMouseEnter: PropTypes.func,
-  handleMouseLeave: PropTypes.func
+  handleMouseLeave: PropTypes.func,
+  inFavorites: PropTypes.bool
 };
 
 export default PlaceCard;

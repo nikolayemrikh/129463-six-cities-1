@@ -20,7 +20,7 @@ const offers = [{
 describe(`Main compontent`, () => {
   it(`should render correctly`, () => {
     const tree = renderer
-      .create(<PlacesList offers={offers}/>)
+      .create(<PlacesList className="some-class-name" offers={offers}/>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();

@@ -2,7 +2,7 @@
 
 exports[`Main compontent should render correctly 1`] = `
 <div
-  className="cities__places-list places__list tabs__content"
+  className="some-class-name"
 >
   <article
     className="cities__place-card place-card"
@@ -26,7 +26,7 @@ exports[`Main compontent should render correctly 1`] = `
       </a>
     </div>
     <div
-      className="place-card__info"
+      className="cities__card-info place-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -46,7 +46,7 @@ exports[`Main compontent should render correctly 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button place-card__bookmark-button--active button"
+          className="place-card__bookmark-button  button"
           type="button"
         >
           <svg
@@ -55,7 +55,7 @@ exports[`Main compontent should render correctly 1`] = `
             width="18"
           >
             <use
-              xlinkHref="#icon-bookmark-active"
+              xlinkHref="#icon-bookmark"
             />
           </svg>
           <span
@@ -122,7 +122,7 @@ exports[`Main compontent should render correctly 1`] = `
       </a>
     </div>
     <div
-      className="place-card__info"
+      className="cities__card-info place-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -142,7 +142,7 @@ exports[`Main compontent should render correctly 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button place-card__bookmark-button--active button"
+          className="place-card__bookmark-button  button"
           type="button"
         >
           <svg
@@ -151,7 +151,7 @@ exports[`Main compontent should render correctly 1`] = `
             width="18"
           >
             <use
-              xlinkHref="#icon-bookmark-active"
+              xlinkHref="#icon-bookmark"
             />
           </svg>
           <span
@@ -218,7 +218,7 @@ exports[`Main compontent should render correctly 1`] = `
       </a>
     </div>
     <div
-      className="place-card__info"
+      className="cities__card-info place-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -238,7 +238,7 @@ exports[`Main compontent should render correctly 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button place-card__bookmark-button--active button"
+          className="place-card__bookmark-button  button"
           type="button"
         >
           <svg
@@ -247,7 +247,7 @@ exports[`Main compontent should render correctly 1`] = `
             width="18"
           >
             <use
-              xlinkHref="#icon-bookmark-active"
+              xlinkHref="#icon-bookmark"
             />
           </svg>
           <span
@@ -314,7 +314,7 @@ exports[`Main compontent should render correctly 1`] = `
       </a>
     </div>
     <div
-      className="place-card__info"
+      className="cities__card-info place-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -334,7 +334,7 @@ exports[`Main compontent should render correctly 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button place-card__bookmark-button--active button"
+          className="place-card__bookmark-button  button"
           type="button"
         >
           <svg
@@ -343,7 +343,7 @@ exports[`Main compontent should render correctly 1`] = `
             width="18"
           >
             <use
-              xlinkHref="#icon-bookmark-active"
+              xlinkHref="#icon-bookmark"
             />
           </svg>
           <span

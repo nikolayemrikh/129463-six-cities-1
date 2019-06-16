@@ -40,6 +40,8 @@ store.dispatch(OffersOperation.loadOffers())
     }
   });
 
+store.dispatch(OffersOperation.loadFavoriteOffers());
+
 store.dispatch(UserOperation.checkAuth());
 
 ReactDOM.render(

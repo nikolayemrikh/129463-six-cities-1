@@ -6,6 +6,7 @@ import {getAxios} from "../../api";
 describe(`called without known action`, () => {
   const mock = {
     currentCity: ``,
+    favoriteOffers: [],
     offers: []
   };
 

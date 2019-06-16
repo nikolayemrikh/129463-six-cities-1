@@ -17,3 +17,22 @@ export const getCityOffers = createSelector(
     getCurrentCity,
     (offers, city) => offers.filter((o) => o.city === city)
 );
+
+export const getFavoriteOffers = (state) => {
+  return state[NAMESPACE].favoriteOffers;
+};
+
+export const getCitiesWithFavoriteOffers = createSelector(
+    getFavoriteOffers,
+    (favoriteOffers) => Object.values(favoriteOffers.reduce((acc, offer) => {
+      const city = offer.city;
+      if (!acc[city]) {
+        acc[city] = {
+          city,
+          offers: []
+        };
+      }
+      acc[city].offers.push(offer);
+      return acc;
+    }, {}))
+);

@@ -70,7 +70,7 @@ class Main extends React.PureComponent {
             </select> */}
 
               </form>
-              <PlacesListA handleSetActiveItem={this._handleActivePlaceCard.bind(this)} offers={cityOffers}/>
+              <PlacesListA className="cities__places-list places__list tabs__content" handleSetActiveItem={this._handleActivePlaceCard.bind(this)} offers={cityOffers}/>
             </section>
             <div className="cities__right-section">
               <CityMap key={currentCity} activeOfferId={this.state.activeOfferId} cityOffers={cityOffers}/>
