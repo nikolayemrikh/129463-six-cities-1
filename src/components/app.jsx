@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Switch, Route} from "react-router-dom";
-import {getOffers, getCurrentCity, getCityOffers} from "../reducers/offers/selectors";
+import {getOffers, getCurrentCity, getCityOffers, getCitiesWithFavoriteOffers} from "../reducers/offers/selectors";
 import {getIsAuthRequired, getUser} from "../reducers/user/selectors";
 import {Action as OffersAction, ActionCreator as OffersActionCreator} from "../reducers/offers/offers";
 import {
@@ -47,6 +47,7 @@ const mapStateToProps = (state, ownProps) => {
   return Object.assign({}, ownProps, {
     currentCity: getCurrentCity(state),
     cityOffers: getCityOffers(state),
+    citiesWithFavoriteOffers: getCitiesWithFavoriteOffers(state),
     offers: getOffers(state),
     isAuthRequired: getIsAuthRequired(state),
     user: getUser(state)

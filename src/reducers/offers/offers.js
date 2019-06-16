@@ -41,12 +41,14 @@ const prepareOffers = (offers) => offers.map((offer) => {
 
 const initialState = {
   offers: [],
+  favoriteOffers: [],
   currentCity: ``
 };
 
 const Action = {
   LOAD_OFFERS: `load_offers`,
-  CHANGE_CITY: `change_city`
+  LOAD_FAVORITE_OFFERS: `load_favorite_offers`,
+  CHANGE_CITY: `change_city`,
 };
 
 // ф-ии создания action. action имеет type и payload
@@ -54,6 +56,12 @@ const Action = {
 // добавлен пост, изменен цвет, итд.
 const ActionCreator = {
   [Action.LOAD_OFFERS]: (offers) => {
+    return {
+      type: Action.LOAD_OFFERS,
+      payload: offers
+    };
+  },
+  [Action.LOAD_FAVORITE_OFFERS]: (offers) => {
     return {
       type: Action.LOAD_OFFERS,
       payload: offers
@@ -72,6 +80,14 @@ const Operation = {
     return (dispatch, _getState, api) => {
       return api.get(`/hotels`)
         .then((res) => {
+          dispatch(ActionCreator[Action.LOAD_FAVORITE_OFFERS](res.data));
+        });
+    };
+  },
+  loadFavoriteOffers: () => {
+    return (dispatch, _getState, api) => {
+      return api.get(`/favorite`)
+        .then((res) => {
           dispatch(ActionCreator[Action.LOAD_OFFERS](res.data));
         });
     };
@@ -86,6 +102,9 @@ const reducer = (state = initialState, action) => {
   switch (type) {
     case Action.LOAD_OFFERS:
       newState.offers = prepareOffers(payload);
+      break;
+    case Action.LOAD_FAVORITE_OFFERS:
+      newState.favoriteOffers = prepareOffers(payload);
       break;
     case Action.CHANGE_CITY:
       newState.currentCity = payload;

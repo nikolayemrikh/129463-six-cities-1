@@ -23,7 +23,7 @@ exports[`PlaceCard compontent should render correctly 1`] = `
     </a>
   </div>
   <div
-    className="place-card__info"
+    className="cities__card-info place-card__info"
   >
     <div
       className="place-card__price-wrapper"
@@ -43,7 +43,7 @@ exports[`PlaceCard compontent should render correctly 1`] = `
         </span>
       </div>
       <button
-        className="place-card__bookmark-button place-card__bookmark-button--active button"
+        className="place-card__bookmark-button  button"
         type="button"
       >
         <svg
@@ -52,7 +52,7 @@ exports[`PlaceCard compontent should render correctly 1`] = `
           width="18"
         >
           <use
-            xlinkHref="#icon-bookmark-active"
+            xlinkHref="#icon-bookmark"
           />
         </svg>
         <span
