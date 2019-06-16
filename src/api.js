@@ -1,9 +1,10 @@
 import axios from 'axios';
+import {BASE_URL} from "./enums";
 import {ActionCreator as UserActionCreator, Action as UserAction} from "./reducers/user/user";
 
 export const getAxios = (dispatch) => {
   const api = axios.create({
-    baseURL: `https://es31-server.appspot.com/six-cities`,
+    baseURL: BASE_URL,
     timeout: 5000,
     withCredentials: true
   });
@@ -12,7 +13,8 @@ export const getAxios = (dispatch) => {
   const onSuccess = (response) => response;
   const onFail = (err) => {
     if (err.response.status === 403) {
-      dispatch(UserActionCreator[UserAction.REQUIRE_AUTH](true));
+      history.pushState(null, null, `/login`);
+      // dispatch(UserActionCreator[UserAction.REQUIRE_AUTH](true));
     }
     return err;
   };

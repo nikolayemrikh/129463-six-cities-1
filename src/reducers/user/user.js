@@ -9,7 +9,7 @@ const prepareUser = (user) => {
 };
 
 const initialState = {
-  authRequired: false,
+  authRequired: true,
   user: null
 };
 
@@ -39,9 +39,25 @@ const ActionCreator = {
 const Operation = {
   logIn: (credentials) => {
     return (dispatch, _getState, api) => {
-      return api.post(`/login`, credentials)
+      return api
+        .post(`/login`, credentials)
         .then((res) => {
-          dispatch(ActionCreator[Action.LOG_IN](res.data));
+          if (res.status === 200) {
+            dispatch(ActionCreator[Action.REQUIRE_AUTH](false));
+            dispatch(ActionCreator[Action.LOG_IN](res.data));
+          }
+        });
+    };
+  },
+  checkAuth: () => {
+    return (dispatch, _getState, api) => {
+      return api
+        .get(`/login`)
+        .then((res) => {
+          if (res.status === 200) {
+            dispatch(ActionCreator[Action.REQUIRE_AUTH](false));
+            dispatch(ActionCreator[Action.LOG_IN](res.data));
+          }
         });
     };
   }
