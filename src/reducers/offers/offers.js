@@ -1,4 +1,4 @@
-const prepareOffers = (offers) => offers.map((offer) => {
+const prepareOffers = (offers = []) => offers.map((offer) => {
   const {
     preview_image: image,
     is_favorite: isFavorite,
@@ -31,7 +31,12 @@ const prepareOffers = (offers) => offers.map((offer) => {
     title,
     images,
     bedrooms,
-    host,
+    host: {
+      id: host.id,
+      isPro: host.is_pro,
+      avatarSrc: host.avatar_url,
+      name: host.name
+    },
     goods,
     maxAdults,
     isFavorite,

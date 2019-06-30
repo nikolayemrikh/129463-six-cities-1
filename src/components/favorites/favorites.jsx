@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Icon from "../icon/icon.jsx";
 import Header from "../header/header.jsx";
 import PlacesList from "../places-list/places-list.jsx";
@@ -41,5 +42,12 @@ class Favorites extends React.PureComponent {
     </div>;
   }
 }
+
+Favorites.propTypes = {
+  citiesWithFavoriteOffers: PropTypes.arrayOf(PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    offers: PropTypes.array.isRequired
+  }))
+};
 
 export default Favorites;

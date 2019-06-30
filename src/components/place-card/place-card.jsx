@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 import {PlaceType} from "../../enums";
 
@@ -22,7 +23,6 @@ const PlaceCard = (props) => {
     isFavorite,
     inFavorites,
     handleImageClick = () => {},
-    handleTitleClick = () => {},
     handleMouseEnter = () => {},
     handleMouseLeave = () => {}
   } = props;
@@ -30,11 +30,6 @@ const PlaceCard = (props) => {
   const _handleImageClick = (evt) => {
     evt.preventDefault();
     handleImageClick(id);
-  };
-
-  const _handleTitleClick = (evt) => {
-    evt.preventDefault();
-    handleTitleClick(id);
   };
 
   const blockName = inFavorites ? BlockName.FAVORITES : BlockName.CITIES;
@@ -69,7 +64,7 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#" onClick={_handleTitleClick}>{title}</a>
+          <Link href="#" to={`/offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
