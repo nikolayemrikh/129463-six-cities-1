@@ -40,9 +40,10 @@ store.dispatch(OffersOperation.loadOffers())
     }
   });
 
-store.dispatch(OffersOperation.loadFavoriteOffers());
 
-store.dispatch(UserOperation.checkAuth());
+store.dispatch(UserOperation.checkAuth()).then(() => {
+  // store.dispatch(OffersOperation.loadFavoriteOffers());
+});
 
 ReactDOM.render(
     <Provider store={store}>
